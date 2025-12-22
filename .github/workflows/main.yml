@@ -3,7 +3,7 @@ name: Data Preprocessing Otomatis (Wine Quality)
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   preprocessing:
