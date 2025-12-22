@@ -52,9 +52,8 @@ def save_data(df: pd.DataFrame, output_path: str) -> None:
 
 def main():
 
-    input_path = "C:/Users/Microsoft/Documents/Eksperimen_SML_Putu_Devasya_Aditya_Widyadana/winequality-white_raw/winequality-white_raw.csv"
-    output_path = "C:/Users/Microsoft/Documents/Eksperimen_SML_Putu_Devasya_Aditya_Widyadana/preprocessing/winequality-white_preprocessing/winequality-white_preprocessing.csv"
-
+    input_path = "../winequality-white_raw/winequality-white_raw.csv"
+    output_path = "../preprocessing/winequality-white_preprocessing/winequality-white_preprocessing.csv"
     df = load_data(input_path)
     df_processed = preprocess_data(df)
     save_data(df_processed, output_path)
