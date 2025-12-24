@@ -22,8 +22,8 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
 
     df = df.dropna()
     df = df.drop_duplicates()
-    X = df.drop("quality", axis=1)
-    y = df["quality"]
+    X = df.drop("Potability", axis=1)
+    y = df["Potability"]
 
     Q1 = X.quantile(0.25)
     Q3 = X.quantile(0.75)
@@ -41,7 +41,7 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     X_scaled = scaler.fit_transform(X)
 
     df_processed = pd.DataFrame(X_scaled, columns=X.columns)
-    df_processed["quality"] = y.values
+    df_processed["Potability"] = y.values
 
     return df_processed
 
@@ -51,9 +51,8 @@ def save_data(df: pd.DataFrame, output_path: str) -> None:
 
 
 def main():
-
-    input_path = "../winequality-white_raw/winequality-white_raw.csv"
-    output_path = "../preprocessing/winequality-white_preprocessing/winequality-white_preprocessing.csv"
+    input_path = "../water_potability_raw/water_potability_raw.csv"
+    output_path = "../preprocessing/water_potability_preprocessing/water_potability_preprocessing.csv"
     df = load_data(input_path)
     df_processed = preprocess_data(df)
     save_data(df_processed, output_path)
